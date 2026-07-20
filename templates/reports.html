@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Attendance System • Attendance Report</title>
+
+   <link rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/school.ico') }}">
+
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="card-container">
+
+    <h1>📊 Attendance Report</h1>
+
+    <p class="page-subtitle">
+    View, manage and export attendance records.
+    </p>
+
+    <div class="search-box">
+
+<form method="GET">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search by Student ID or Name"
+            value="{{ search }}">
+
+        <input
+            type="date"
+            name="date"
+            value="{{ date }}">
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+    </div>
+
+    <br> 
+    <div class="action-buttons">
+
+    <a href="{{ url_for('attendance.export_csv') }}">
+
+        <button class="primary-btn">
+
+            📁 Export CSV
+
+        </button>
+
+    </a>
+
+    <a href="{{ url_for('auth.dashboard') }}">
+
+        <button class="secondary-btn">
+
+            ← Back to Dashboard
+
+        </button>
+
+    </a>
+
+</div>
+
+
+    <br>
+
+   <div class="stats-card">
+
+    <h3>Total Attendance Records</h3>
+
+    <h1>{{ total }}</h1>
+
+</div>
+
+    <br>
+
+   <table>
+
+    <thead>
+
+    <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+        </tr>
+
+</thead>
+
+<tbody>
+
+{% if records %}
+
+        {% for record in records %}
+
+        <tr>
+
+            <td>{{ record[0] }}</td>
+
+            <td>{{ record[1] }}</td>
+
+            <td>{{ record[2] }}</td>
+
+            <td>{{ record[3] }}</td>
+
+            <td>{{ record[4] }}</td>
+
+        </tr>
+
+        {% endfor %}
+    {% else %}
+
+            <tr>
+
+                <td colspan="5" style="text-align:center;">
+
+                    No attendance records found.
+
+                </td>
+
+            </tr>
+
+    {% endif %}
+    </tbody>
+    
+    </table>
+
+    <br><br>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Attendance System • Student Registration</title>
+
+    <link rel="icon"
+          type="image/x-icon"
+          href="{{ url_for('static', filename='images/school.ico') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="card-container">
+
+    <h1>🎓 Student Registration</h1>
+
+    <p class="page-subtitle">
+        Add a new student to the attendance system
+    </p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% if messages %}
+
+            {% for category, message in messages %}
+
+                <div class="flash-message {{ category }}">
+
+                    {{ message }}
+
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+    {% endwith %}
+
+    <form method="POST">
+
+        <div class="form-grid">
+
+            <div>
+                <label>Student ID</label>
+                <input type="text"
+                       name="student_id"
+                       required>
+            </div>
+
+            <div>
+                <label>Student Name</label>
+                <input type="text"
+                       name="name"
+                       required>
+            </div>
+
+            <div>
+                <label>Course</label>
+                <input type="text"
+                       name="course"
+                       required>
+            </div>
+
+            <div>
+                <label>Year</label>
+                <input type="text"
+                       name="year"
+                       required>
+            </div>
+
+            <div>
+                <label>Session</label>
+                <input type="text"
+                       name="session"
+                       required>
+            </div>
+
+            <div>
+                <label>Email</label>
+                <input type="email"
+                       name="email">
+            </div>
+
+            <div>
+                <label>Phone Number</label>
+                <input type="text"
+                       name="phone">
+            </div>
+
+        </div>
+
+        <div class="button-group">
+
+            <button class="primary-btn"
+                    type="submit">
+
+                ➕ Register Student
+
+            </button>
+
+            <a href="{{ url_for('auth.dashboard') }}"
+               class="secondary-btn">
+
+                ← Back to Dashboard
+
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+<footer>
+
+    <p>
+        © 2026 AI Attendance System |
+        Developed by Prerana Verma
+    </p>
+
+</footer>
+
+</body>
+
+</html>

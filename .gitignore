@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+.env
+
+# VS Code
+.vscode/
+
+# Database
+database/*.db
+
+# Face Datasets
+student_images/
+
+# Exported Files
+exports/
+*.csv
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+
+# OS Files
+Thumbs.db
+.DS_Store

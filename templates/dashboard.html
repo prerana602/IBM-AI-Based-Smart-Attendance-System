@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Attendance System • Dashboard</title>
+
+    <link rel="icon"
+          type="image/x-icon"
+          href="{{ url_for('static', filename='images/school.ico') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header class="dashboard-header">
+
+    <div class="logo">
+        🎓 AI Attendance System
+    </div>
+
+    <div class="admin-user">
+        👤 Administrator
+    </div>
+
+</header>
+
+<div class="welcome-box">
+
+    <h1>Welcome, Administrator 👋</h1>
+
+    <p>
+
+        Manage student registrations, capture face datasets,
+        mark attendance using facial recognition,
+        and generate attendance reports from one place.
+
+    </p>
+
+</div>
+
+<div class="stats-container">
+
+    <div class="stat-card">
+
+        <h2>👨‍🎓</h2>
+
+        <h3>{{ total_students }}</h3>
+
+        <p>Total Students</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>📅</h2>
+
+        <h3>{{ today_attendance }}</h3>
+
+        <p>Today's Attendance</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>📊</h2>
+
+        <h3>{{ total_records }}</h3>
+
+        <p>Total Records</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>📷</h2>
+
+        <h3>{{ ready_students }}</h3>
+
+        <p>Face Dataset Ready</p>
+
+    </div>
+
+</div>
+
+<div class="dashboard-grid">
+
+    <a href="{{ url_for('student.register') }}"
+       class="dashboard-card">
+
+        <div class="icon">👤</div>
+
+        <h2>Register Student</h2>
+
+        <p>Add a new student to the system</p>
+
+    </a>
+
+    <a href="{{ url_for('student.student_list') }}"
+       class="dashboard-card">
+
+        <div class="icon">📷</div>
+
+        <h2>Capture Face</h2>
+
+        <p>Create face dataset for recognition</p>
+
+    </a>
+
+    <a href="{{ url_for('camera.recognize') }}"
+       class="dashboard-card">
+
+        <div class="icon">✅</div>
+
+        <h2>Mark Attendance</h2>
+
+        <p>Recognize faces using webcam</p>
+
+    </a>
+
+    <a href="{{ url_for('attendance.reports') }}"
+       class="dashboard-card">
+
+        <div class="icon">📊</div>
+
+        <h2>Attendance Report</h2>
+
+        <p>View attendance records</p>
+
+    </a>
+
+    <a href="{{ url_for('attendance.export_csv') }}"
+       class="dashboard-card">
+
+        <div class="icon">📁</div>
+
+        <h2>Export CSV</h2>
+
+        <p>Download attendance report</p>
+
+    </a>
+
+</div>
+
+<div class="logout-section">
+
+    <a href="{{ url_for('auth.login') }}"
+       class="logout-btn">
+
+        🔒 Logout
+
+    </a>
+
+</div>
+
+<footer class="footer">
+
+    <p>
+
+        © 2026 AI Attendance System |
+        Developed by Prerana Verma
+
+    </p>
+
+</footer>
+
+</body>
+
+</html>

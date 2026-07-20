@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>AI Attendance System • Login</title>
+
+    <link rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/school.ico') }}?v=2">
+
+    <link rel="stylesheet" 
+      href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <h1>🎓 AI Attendance System</h1>
+
+        <p>Login to continue</p>
+
+     <form action="{{ url_for('auth.dashboard') }}" method="GET">
+
+    <label>Username</label>
+
+    <input
+        type="text"
+        name="username"
+        placeholder="Enter Username"
+        required>
+
+    <label>Password</label>
+
+    <input
+        type="password"
+        name="password"
+        placeholder="Enter Password"
+        required>
+
+    <button type="submit">
+        Login
+    </button>
+
+</form>
+
+    </div>
+
+</body>
+
+</html>
